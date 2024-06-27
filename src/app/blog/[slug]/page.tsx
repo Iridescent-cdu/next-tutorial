@@ -1,10 +1,15 @@
 import { Suspense } from "react";
 import { getMeals } from "./db";
 import styles from "./page.module.css";
+import { notFound } from "next/navigation";
 
 async function Post() {
-  await getMeals()
-  throw new Error('出错了')
+  const meals = await getMeals()
+
+  if (meals.length < 2) {
+    notFound()
+  }
+  // throw new Error('出错了')
   return <div>loading out</div>
 }
 
