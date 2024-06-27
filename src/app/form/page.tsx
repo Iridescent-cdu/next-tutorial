@@ -9,8 +9,8 @@
 //     const formData = new FormData(event.target)
 
 //     const formValues = {
-//       username: formData.get('username'),
-//       password: formData.get('password'),
+//       slug: formData.get('slug'),
+//       instructions: formData.get('instructions'),
 //       image: formData.get('image')
 //     }
 
@@ -25,10 +25,10 @@
 //   }
 
 //   return <form action="https://www.example.com/submit" method="POST" onSubmit={handleSubmit} encType="multipart/form-data">
-//     <label htmlFor="username">用户名:</label>
-//     <input type="text" id="username" name="username" />
-//     <label htmlFor="password">密码:</label>
-//     <input type="password" id="password" name="password" />
+//     <label htmlFor="slug">图片名称:</label>
+//     <input type="text" id="slug" name="slug" />
+//     <label htmlFor="instructions">图片介绍:</label>
+//     <input type="text" id="instructions" name="instructions" />
 //     <label htmlFor="image">图片:</label>
 //     <input type="file" id="image" name="image" accept="png,jpg" />
 //     <button>提交</button>
@@ -46,10 +46,10 @@
 
 
 //   return <form action={submitAction}>
-//     <label htmlFor="username">用户名:</label>
-//     <input type="text" id="username" name="username" />
-//     <label htmlFor="password">密码:</label>
-//     <input type="password" id="password" name="password" />
+//     <label htmlFor="slug">图片名称:</label>
+//     <input type="text" id="slug" name="slug" />
+//     <label htmlFor="instructions">图片介绍:</label>
+//     <input type="text" id="instructions" name="instructions" />
 //     <label htmlFor="image">图片:</label>
 //     <input type="file" id="image" name="image" accept="png,jpg" />
 //     <button>提交</button>
@@ -65,10 +65,10 @@ import { submitAction } from "@/lib/action";
 
 export default function FormPage() {
   return <form action={submitAction}>
-    <label htmlFor="username">用户名:</label>
-    <input type="text" id="username" name="username" />
-    <label htmlFor="password">密码:</label>
-    <input type="password" id="password" name="password" />
+    <label htmlFor="slug">图片名称:</label>
+    <input type="text" id="slug" name="slug" />
+    <label htmlFor="instructions">图片介绍:</label>
+    <input type="text" id="instructions" name="instructions" />
     <label htmlFor="image">图片:</label>
     <input type="file" id="image" name="image" accept="png,jpg" />
     <button>提交</button>
