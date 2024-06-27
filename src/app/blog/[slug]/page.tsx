@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 
 async function Post() {
   await getMeals()
+  throw new Error('出错了')
   return <div>loading out</div>
 }
 
