@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getMeals } from "./db";
+import { getMeals } from "../../../lib/db";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 
