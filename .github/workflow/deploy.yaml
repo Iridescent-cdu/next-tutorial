@@ -1,0 +1,27 @@
+name: Next-Deploy
+run-name: Deploy Next.js to CentOS
+on: [push]
+branch: master
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout git repository
+        uses: actions/checkout@v3
+      - name: build the docker image
+        run: docker build -t nextjs-app .
+      - name: login to aliyun docker repository
+        run: docker login --username=${{ secrets.ALIYUN_USERNAME }} --password=${{ secrets.ALIYUN_PASSWORD }} ${{ secrets.ALIYUN_REGISTRY }}
+      - name: push image to aliyun docker repository
+        run: docker tag nextjs-app ${{ secrets.ALIYUN_REGISTRY }}/nextjs-app:latest && docker push ${{ secrets.ALIYUN_REGISTRY }}/nextjs-app:latest
+      - name: deploy to aliyun ecs
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}}
+          port: 22
+          script: |
+            docker stop nextjs-app || true
+            docker rm nextjs-app || true
+            docker run -d -p 3000:3000 --name nextjs-app ${{ secrets.ALIYUN_REGISTRY }}/nextjs-app:latest
