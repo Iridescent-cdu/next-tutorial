@@ -1,7 +1,9 @@
 name: Next-Deploy
 run-name: Deploy Next.js to CentOS
-on: [push]
-branch: master
+on: 
+  push:
+    branches:
+      - master
 jobs:
   deployment:
     runs-on: ubuntu-latest
