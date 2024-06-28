@@ -7,15 +7,17 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    env:
+      ALIYUN_REGISTRY: ${{ secrets.ALIYUN_REGISTRY }}
     steps:
       - name: checkout git repository
         uses: actions/checkout@v3
       - name: login to aliyun docker repository
         run: docker login --username=${{ secrets.ALIYUN_USERNAME }} --password=${{ secrets.ALIYUN_PASSWORD }} ${{ secrets.ALIYUN_REGISTRY }}
       - name: build the docker image
-        run: docker build -t ${{ secrets.ALIYUN_REGISTRY }}/next-contaner:latest .
+        run: docker build -t $ALIYUN_REGISTRY/next-contaner:latest .
       - name: push image to aliyun docker repository
-        run: docker push ${{ secrets.ALIYUN_REGISTRY }}/next-contaner:latest
+        run: docker push $ALIYUN_REGISTRY/next-contaner:latest 
       - name: deploy to aliyun ecs
         uses: appleboy/ssh-action@master
         with:
@@ -24,7 +26,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           script: |
-            docker pull ${{ secrets.ALIYUN_REGISTRY }}/next-contaner:latest
+            docker pull $ALIYUN_REGISTRY/next-contaner:latest
             docker stop next-contaner || true
             docker rm next-contaner || true
-            docker run -d -p 3000:3000 --name next-contaner ${{ secrets.ALIYUN_REGISTRY }}/next-contaner:latest
+            docker run -d -p 3000:3000 --name next-contaner $ALIYUN_REGISTRY/next-contaner:latest
