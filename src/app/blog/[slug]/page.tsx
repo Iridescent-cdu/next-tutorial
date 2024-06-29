@@ -3,6 +3,11 @@ import { getMeals } from "../../../lib/db";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  return {
+    title: params.slug
+  }
+}
 async function Post() {
   const meals = await getMeals()
 
