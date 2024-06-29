@@ -59,8 +59,8 @@
 //   </form>
 // }
 
-'use client'
 
+import FormSubmit from "@/components/form-submit";
 import { submitAction } from "@/lib/action";
 
 export default function FormPage() {
@@ -72,7 +72,7 @@ export default function FormPage() {
     <label htmlFor="image">图片:</label>
     <input type="file" id="image" name="image" accept="png,jpg" />
     <button>提交</button>
-    <button type="submit">提交</button>
+    <FormSubmit />
     <button type="reset">重置</button>
     <button type="button">按钮</button>
   </form>

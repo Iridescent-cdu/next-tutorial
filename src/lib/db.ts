@@ -35,6 +35,8 @@ export async function saveMeal(meal) {
 
   meal.image = `/images/${filename}`
 
+  await new Promise(resolve => setTimeout(resolve, 3000))
+
   db.prepare(`
     INSERT INTO meals (title, summary, instructions, creator, creator_email,image, slug)
     VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)
