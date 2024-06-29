@@ -59,12 +59,19 @@
 //   </form>
 // }
 
-
+"use client"
 import FormSubmit from "@/components/form-submit";
 import { submitAction } from "@/lib/action";
+// import { useActionState } from "react";
+import { useFormState } from "react-dom";
 
 export default function FormPage() {
-  return <form action={submitAction}>
+  /** React 19 */
+  // const [state, formAction] = useActionState(submitAction, { message: '' })
+
+  const [state, formAction] = useFormState(submitAction, { message: '' })
+
+  return <form action={formAction}>
     <label htmlFor="slug">图片名称:</label>
     <input type="text" id="slug" name="slug" />
     <label htmlFor="instructions">图片介绍:</label>
@@ -72,6 +79,7 @@ export default function FormPage() {
     <label htmlFor="image">图片:</label>
     <input type="file" id="image" name="image" accept="png,jpg" />
     <button>提交</button>
+    {state.message}
     <FormSubmit />
     <button type="reset">重置</button>
     <button type="button">按钮</button>

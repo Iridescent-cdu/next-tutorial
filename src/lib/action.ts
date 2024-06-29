@@ -5,7 +5,7 @@ import { saveMeal } from "./db"
 function isInvalidText(text) {
   return !text || text.trim() == ''
 }
-export const submitAction = async (formData) => {
+export const submitAction = async (prevState, formData) => {
   const meal = {
     title: formData.get('title') || '',
     summary: formData.get('summary') || '',
@@ -26,7 +26,10 @@ export const submitAction = async (formData) => {
     !meal.image ||
     meal.image.size === 0
   ) {
-    throw new Error('Invalid input');
+    // throw new Error('Invalid input');
+    return {
+      message: 'Invalid input'
+    }
   }
 
   await saveMeal(meal)
