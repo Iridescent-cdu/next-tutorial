@@ -2,7 +2,9 @@
 
 import { redirect } from "next/navigation"
 import { saveMeal } from "./db"
-
+function isInvalidText(text) {
+  return !text || text.trim() == ''
+}
 export const submitAction = async (formData) => {
   const meal = {
     title: formData.get('title') || '',
@@ -12,6 +14,19 @@ export const submitAction = async (formData) => {
     creator: formData.get('name') || '',
     creator_email: formData.get('email') || '',
     slug: formData.get('slug')
+  }
+
+  if (
+    isInvalidText(meal.title) ||
+    isInvalidText(meal.summary) ||
+    isInvalidText(meal.instructions) ||
+    isInvalidText(meal.creator) ||
+    isInvalidText(meal.creator_email) ||
+    !meal.creator_email.includes('@') ||
+    !meal.image ||
+    meal.image.size === 0
+  ) {
+    throw new Error('Invalid input');
   }
 
   await saveMeal(meal)
