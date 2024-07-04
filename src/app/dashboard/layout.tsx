@@ -14,9 +14,9 @@ export default function Layout({
   console.log(segment)
   return (
     <>
+      {analytics}
       {children}
       {team}
-      {analytics}
     </>
   )
 }
