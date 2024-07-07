@@ -38,3 +38,7 @@ export const submitAction = async (prevState, formData) => {
   // revalidatePath('/', 'page')
   redirect('/')
 }
+
+export const collectAction = async () => {
+
+}
