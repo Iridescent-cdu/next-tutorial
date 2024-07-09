@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation"
 import { saveMeal } from "./db"
-import { revalidatePath } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 function isInvalidText(text) {
   return !text || text.trim() == ''
 }
@@ -41,4 +41,20 @@ export const submitAction = async (prevState, formData) => {
 
 export const collectAction = async () => {
 
+}
+
+export const handleSubmit = async (formData: FormData) => {
+  const cpu = formData.get('cpu')
+
+  await fetch('http://localhost:3001/metrics', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      cpu
+    })
+  })
+  revalidateTag('metrics')
+  redirect('/metrics')
 }
