@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import DouyinPng from "../../../../public/douyin.png";
+import DouyinPng from "../../../../public/images/douyin.png";
 import NextSvg from "../../../../public/next.svg";
 import styles from "./page.module.css";
 
