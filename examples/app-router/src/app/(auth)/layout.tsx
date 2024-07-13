@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 
 const AuthLayout = async ({ children }) => {
-  const user = await validateCookie()
+  const { user } = await validateCookie() || {}
 
   if (user) {
     redirect('/')

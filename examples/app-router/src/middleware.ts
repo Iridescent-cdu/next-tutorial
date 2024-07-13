@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   }
   const originHeader = request.headers.get('origin')
   const hostHeader = request.headers.get('host')
-  if (!originHeader || !hostHeader || verifyRequestOrigin(originHeader, [hostHeader])) {
+  if (!originHeader || !hostHeader || !verifyRequestOrigin(originHeader, [hostHeader])) {
     return new NextResponse(null, {
       status: 403
     })
