@@ -1,0 +1,23 @@
+import { useRouter } from 'next/router'
+
+type Props = {}
+
+const ArticlePage = (props: Props) => {
+  const router = useRouter()
+
+  /** SSG 的构建过程是在没有实际用户请求的情况下完成的，因此无法获取动态路由参数，默认为 {} */
+  console.log(router.query)
+
+  return (
+    <div>ArticlePage</div>
+  )
+}
+
+/** 显示指定为SSR后，可以获取到路由参数 */
+export const getServerSideProps = async (context) => {
+  return {
+    props: {}
+  }
+}
+
+export default ArticlePage
