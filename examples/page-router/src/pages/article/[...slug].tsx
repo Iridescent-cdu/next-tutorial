@@ -12,12 +12,12 @@ const ArticlePage = (props: Props) => {
   console.log(router.query)
 
   return (
-    <div>ArticlePage</div>
+    <div>ArticlePage {router.query.slug}</div>
   )
 }
 
 /** 显示指定为SSR后，服务端可以获取到路由参数 */
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (context: any) => {
   return {
     props: {}
   }
