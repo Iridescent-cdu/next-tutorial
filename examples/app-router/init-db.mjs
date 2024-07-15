@@ -1,6 +1,6 @@
 import sql from 'better-sqlite3'
 
-const db = sql('meal.db')
+const db = sql('database.db')
 
 db.prepare(`
     CREATE TABLE IF NOT EXISTS meals (

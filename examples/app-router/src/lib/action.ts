@@ -1,10 +1,10 @@
 'use server'
-
 import { redirect } from "next/navigation"
 import { getUser, saveMeal } from "./db"
 import { revalidatePath, revalidateTag } from "next/cache"
 import { setCookie } from "./auth"
-function isInvalidText(text) {
+
+function isInvalidText(text: string) {
   return !text || text.trim() == ''
 }
 
@@ -41,27 +41,7 @@ export const submitAction = async (prevState, formData) => {
   redirect('/')
 }
 
-export const collectAction = async () => {
-
-}
-
-export const handleSubmit = async (formData: FormData) => {
-  const cpu = formData.get('cpu')
-
-  await fetch('http://localhost:3001/metrics', {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      cpu
-    })
-  })
-  revalidateTag('metrics')
-  redirect('/metrics')
-}
-
-export const login = async (_prevState, formData) => {
+export const loginAction = async (_prevState, formData) => {
   try {
     const username = formData.get('username')
 

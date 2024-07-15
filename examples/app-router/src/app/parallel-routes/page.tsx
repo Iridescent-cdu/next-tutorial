@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '仪表板',
+  title: '平行路由',
 };
 
-export default function DashboardPage() {
+export default function ParallelRoutesPage() {
   return (
     <div>
-      仪表板
+      ParallelRoutesPage
     </div>
   );
 }

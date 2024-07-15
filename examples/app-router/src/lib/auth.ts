@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { cache } from 'react';
 
-const db = sqlite('meal.db')
+const db = sqlite('database.db')
 
 const adapter = new BetterSqlite3Adapter(db, {
   user: 'user',

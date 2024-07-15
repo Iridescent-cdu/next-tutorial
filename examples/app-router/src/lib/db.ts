@@ -3,7 +3,7 @@ import slugify from 'slugify'
 import xss from 'xss'
 import fs from 'node:fs'
 
-const db = sql('meal.db')
+const db = sql('database.db')
 
 export async function getMeals() {
   await new Promise((resolve) => setTimeout(resolve, 5000))

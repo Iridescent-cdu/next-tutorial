@@ -1,23 +1,10 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
-import Unsplash from '../../../../public/images/christopher-unsplash.jpg'
-type Props = {}
-// export const dynamic = 'force-dynamic'
-const MetricsDashboard = async (props: Props) => {
-  const data = await fetch('http://localhost:3001/metrics', {
-    method: 'GET',
-    headers: {
-      'x-id': 'MetricsDashboard'
-    },
-    next: {
-      tags: ['metrics']
-    }
-  }).then(res => res.json())
+import { Fragment } from 'react'
+import Unsplash from '../../../public/images/christopher-unsplash.jpg'
 
+const ImagePage = async () => {
   return (
-    <>
-      <div>MetricsDashboard</div>
+    <Fragment>
       <img src={Unsplash.src} alt="Unsplash" style={{ width: '220px' }} />
       <Image src={Unsplash} alt="" width={220} />
       <div style={{ width: '220px', height: '146px', position: 'relative' }}>
@@ -29,9 +16,8 @@ const MetricsDashboard = async (props: Props) => {
           objectPosition='center'
           alt='' />
       </div>
-      {data.map((item: any, index: number) => (<div key={index}>{item.cpu}</div>))}
-    </>
+    </Fragment>
   )
 }
 
-export default MetricsDashboard
+export default ImagePage

@@ -8,7 +8,6 @@ export default function Home() {
       <form>
         <button formAction={logout}>Login Out</button>
       </form>
-      <LinkComponent />
     </main >
   );
 }

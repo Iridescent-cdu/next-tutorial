@@ -1,12 +1,12 @@
 'use client'
-import { login } from '@/lib/action'
+import { loginAction } from '@/lib/action'
 import React from 'react'
 import { useFormState } from 'react-dom'
 
 type Props = {}
 
 const LoginPage = (props: Props) => {
-  const [state, formAction] = useFormState(login, {
+  const [state, formAction] = useFormState(loginAction, {
     message: ''
   })
 
