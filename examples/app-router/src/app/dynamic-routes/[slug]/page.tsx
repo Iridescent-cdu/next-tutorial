@@ -15,7 +15,7 @@ export default function BlogPost({ params }) {
   const meals = []
 
   if (meals.length < 2) {
-    return notFound()
+    notFound()
   }
 
   const [optimisticMeals, updateOptimisticMeals] = useOptimistic(meals, (prevState: any[], updatePostId) => {

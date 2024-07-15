@@ -1,18 +1,13 @@
-import { Body, Controller, Get, Post, Headers } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('/api')
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get('/metrics')
-  getMetrics(@Headers() headers: any) {
-    console.log(headers['x-id'])
+  @Get()
+  getMetrics() {
+    console.log('call');
     return this.appService.getMetrics();
-  }
-
-  @Post('/metrics')
-  setMetrics(@Body() metrics: any) {
-    return this.appService.setMetrics(metrics);
   }
 }
