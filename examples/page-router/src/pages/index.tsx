@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -9,9 +8,9 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <Link href={"/article"} prefetch>Article</Link>
-      <Link href={"/article/1"} prefetch>Article 1</Link>
-      {/* <a href="/article/1">Article 1</a> */}
+      <Link href={"/dynamic-routes"} prefetch>DynamicRoutes</Link>
+      <Link href={"/dynamic-routes/1"} prefetch>DynamicRoutes 1</Link>
+      {/* <a href="/dynamic-routes/1">DynamicRoutes 1</a> */}
     </main>
   );
 }

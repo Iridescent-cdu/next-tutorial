@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 type Props = {}
 
-const ArticlePage = (props: Props) => {
+const DynamicRoutePage = (props: Props) => {
   const router = useRouter()
 
   /** 
@@ -12,7 +12,7 @@ const ArticlePage = (props: Props) => {
   console.log(router.query)
 
   return (
-    <div>ArticlePage {router.query.slug}</div>
+    <div>DynamicRoutePage {router.query.slug}</div>
   )
 }
 
@@ -23,4 +23,4 @@ export const getServerSideProps = async (context: any) => {
   }
 }
 
-export default ArticlePage
+export default DynamicRoutePage

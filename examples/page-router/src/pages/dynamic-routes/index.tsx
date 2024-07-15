@@ -2,10 +2,10 @@ type Props = {
   data: string
 }
 
-const ArticlePage = (props: Props) => {
+const DynamicRoutesPage = (props: Props) => {
   return (
     <div>
-      <h1>ArticlePage</h1>
+      <h1>DynamicRoutesPage</h1>
       <p>{props.data}</p>
     </div>
   )
@@ -19,4 +19,4 @@ export async function getStaticProps() {
   }
 }
 
-export default ArticlePage
+export default DynamicRoutesPage
