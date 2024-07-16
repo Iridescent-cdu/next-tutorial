@@ -21,7 +21,7 @@ export const getStaticProps = (async function () {
   }
 }) satisfies GetStaticProps<{
   name: string
-}>
+}> // 使用 satisfies 允许定义更宽松的类型签名，并且最终会进行类型缩小，输出实际类型
 
 export const getStaticPaths = (async function () {
   return {
