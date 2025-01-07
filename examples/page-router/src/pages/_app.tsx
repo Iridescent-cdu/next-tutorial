@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return <div>{children}</div>;
 };
