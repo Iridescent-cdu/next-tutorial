@@ -12,7 +12,7 @@ import { getMeals } from "@/lib/db";
 
 export default function BlogPost({ params }) {
   // const meals = await getMeals()
-  const meals = []
+  const meals: string | any[] = []
 
   if (meals.length < 2) {
     notFound()
@@ -20,9 +20,11 @@ export default function BlogPost({ params }) {
 
   const [optimisticMeals, updateOptimisticMeals] = useOptimistic(meals, (prevState: any[], updatePostId) => {
     const mealIndex = prevState.findIndex(meal => meal.id == updatePostId)
+
     if (mealIndex === -1) {
       return prevState
     }
+
     return [
       ...prevState.slice(0, mealIndex),
       { ...prevState[mealIndex], collected: true },

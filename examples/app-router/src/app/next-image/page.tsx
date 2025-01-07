@@ -22,6 +22,7 @@ const ImagePage = async () => {
 
   return (
     <Fragment>
+      {/*  eslint-disable-next-line @next/next/no-img-element */}
       <img src={Unsplash.src} alt="Unsplash" style={{ width: '220px' }} />
       <Image src={Unsplash} alt="" width={220} />
       <div style={{ width: '220px', height: '146px', position: 'relative' }}>

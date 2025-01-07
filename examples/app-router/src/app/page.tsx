@@ -1,4 +1,3 @@
-import LinkComponent from "@/components/link";
 import styles from "./page.module.css";
 import { logout } from "@/lib/auth";
 
