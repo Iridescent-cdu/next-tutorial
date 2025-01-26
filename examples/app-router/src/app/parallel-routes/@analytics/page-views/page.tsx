@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const PageView = (props: Props) => {
-  return (
-    <div>PageView</div>
-  )
-}
+  return <div>PageView</div>;
+};
 
-export default PageView
+export default PageView;

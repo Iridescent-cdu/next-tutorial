@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const InterceptingPhoto = (props: Props) => {
-  return (
-    <div>Intercepting Photo</div>
-  )
-}
-export default InterceptingPhoto
+  return <div>Intercepting Photo</div>;
+};
+export default InterceptingPhoto;

@@ -1,6 +1,5 @@
-import Link from 'next/link'
+import Link from "next/link";
 export default function Layout({ children }: { children: React.ReactNode }) {
-
   return (
     <>
       <nav>
@@ -9,5 +8,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </nav>
       <div>{children}</div>
     </>
-  )
+  );
 }

@@ -3,8 +3,8 @@
  * @Description: SSG：prerendered as static HTML (uses getStaticProps)
  */
 type Props = {
-  data: string
-}
+  data: string;
+};
 
 const SSGPage = (props: Props) => {
   return (
@@ -12,16 +12,16 @@ const SSGPage = (props: Props) => {
       <h1>SSGPage</h1>
       <p>{props.data}</p>
     </div>
-  )
-}
+  );
+};
 
 // 预渲染，通过请求获取数据，生成静态文件
 export async function getStaticProps() {
   return {
     props: {
-      data: "hello world"
-    }
-  }
+      data: "hello world",
+    },
+  };
 }
 
-export default SSGPage
+export default SSGPage;

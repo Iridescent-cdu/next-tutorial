@@ -7,11 +7,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Layout>
-    <Head>
-      <title>Page Router</title>
-      <meta property="og:title" content="My page title" key="title" />
-    </Head>
-    <Component {...pageProps} />
-  </Layout>;
+  return (
+    <Layout>
+      <Head>
+        <title>Page Router</title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }

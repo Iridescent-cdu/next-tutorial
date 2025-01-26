@@ -8,10 +8,18 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <Link href={"/Static"} prefetch>Static</Link>
-      <Link href={"/SSR"} prefetch>SSR</Link>
-      <Link href={"/SSG"} prefetch>SSG</Link>
-      <Link href={"/ISR/1"} prefetch>ISR</Link>
+      <Link href={"/Static"} prefetch>
+        Static
+      </Link>
+      <Link href={"/SSR"} prefetch>
+        SSR
+      </Link>
+      <Link href={"/SSG"} prefetch>
+        SSG
+      </Link>
+      <Link href={"/ISR/1"} prefetch>
+        ISR
+      </Link>
       {/* <a href="/ISR/1">Anchor Link</a> */}
     </main>
   );

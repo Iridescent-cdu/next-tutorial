@@ -1,25 +1,25 @@
-'use client'
-import { loginAction } from '@/lib/action'
-import React from 'react'
-import { useFormState } from 'react-dom'
+"use client";
+import { loginAction } from "@/lib/action";
+import React from "react";
+import { useFormState } from "react-dom";
 
-type Props = {}
+type Props = {};
 
 const LoginPage = (props: Props) => {
   const [state, formAction] = useFormState(loginAction, {
-    message: ''
-  })
+    message: "",
+  });
 
   return (
     <form action={formAction}>
       <label htmlFor="username">用户名</label>
-      <input type="text" name='username' id='username' />
+      <input type="text" name="username" id="username" />
       <label htmlFor="password">密码</label>
-      <input type="password" name='password' id="password" />
-      <button type='submit'>登录</button>
+      <input type="password" name="password" id="password" />
+      <button type="submit">登录</button>
       {state?.message}
     </form>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

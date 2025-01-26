@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const PhotoPage = (props: Props) => {
-  return (
-    <div>PhotoPage</div>
-  )
-}
+  return <div>PhotoPage</div>;
+};
 
-export default PhotoPage
+export default PhotoPage;

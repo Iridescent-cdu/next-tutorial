@@ -2,11 +2,11 @@
  * @Date: 2024-07-15 16:38:39
  * @Description: SSR(Dynamic)：server-rendered on demand
  */
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 type Props = {
-  time: string
-}
+  time: string;
+};
 
 const SSRPage = (props: Props) => {
   return (
@@ -14,8 +14,8 @@ const SSRPage = (props: Props) => {
       <div>SSRPage</div>
       <div>{props.time}</div>
     </div>
-  )
-}
+  );
+};
 
 // 服务端渲染，即时请求数据并生成HTML返回给客户端
 export const getServerSideProps = (async () => {
@@ -23,9 +23,9 @@ export const getServerSideProps = (async () => {
     props: {
       time: new Date().toISOString(),
     },
-  }
+  };
 }) satisfies GetServerSideProps<{
-  time: string | number
-}>
+  time: string | number;
+}>;
 
-export default SSRPage
+export default SSRPage;
